@@ -1,0 +1,94 @@
+/* Đặt biến dùng chung, màu chữ, màu chủ đề... */
+:root {
+    --text-color: #6c6c6c;
+    --primary-color: #ed2946;
+}
+
+
+/* Font chữ */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.active {
+    color: var(--primary-color);
+}
+
+/* 12 columns */
+.grid {
+    max-width: 98%;
+    margin: 0 auto;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 22.5%;
+    margin: 1.25%;
+}
+
+.item {
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    user-select: none;
+    padding-bottom: 10px;
+}
+
+.item:hover {
+    position: relative;
+    top: -4px;
+    outline: var(--primary-color) 1px solid;
+}
+
+.btn {
+    border: none;
+    background-color: var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 3px;
+    margin-left: 4px;
+    color: #fafafa;
+}
+
+.btn:hover {
+    background-color:rgba(126, 23, 54, 0.929);
+    cursor: pointer;
+}
+li{
+    list-style: none;
+    padding:20px 0px;
+  
+ 
+
+}
+.meni a{
+    border-left: 5px solid;
+    color: white;
+}
+.meni{
+    width: 200px;
+    margin:20px ;
+
+}
