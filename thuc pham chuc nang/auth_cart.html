@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.1-web/css/all.css">
+    <link rel="stylesheet" href="./asset/css/base.css">
+    <link rel="stylesheet" href="./asset/css/header-nav.css">
+    <link rel="stylesheet" href="./asset/css/index.css">
+    <link rel="stylesheet" href="./asset/css/auth_cart.css">
+</head>
+
+<body>
+    <section class="page">
+        <header class="header">
+            <section class="grid">
+                <section class="header-wrap">
+                    <!-- Logo -->
+                    <section class="header__logo">
+                        <a href="index.html" class="logo-link">YN PHARMACITY </a>
+                    </section>
+
+                    <!-- Search bar -->
+                    <section class="header__search">
+                        <section class="search-wrap">
+                            <input type="text" class="search-input"  id="searchProduct" placeholder="Tìm kiếm thuốc">
+                            <button class="search-btn" onclick="searchProduct()">
+                                <i class="search-btn-icon fas fa-search"></i>
+                            </button>
+                        </section>
+                    </section>
+        
+                    <!-- Cart -->
+                    <section class="header__cart">
+                        <section class="cart-wrap menu-item-active">
+                            <a href="auth_cart.html" class="cart-link">
+                                <i class="cart-icon fas fa-shopping-cart"></i>
+                                <small class="cart-notice">0</small>
+                            </a>
+                        </section>
+                    </section>
+                    <label for="menu-checkbox" class="show-menu-btn">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </label>
+                </section>
+            </section>
+        </header>
+        <nav class="navbar">
+            <input type="checkbox" name="" id="menu-checkbox">
+            <ul class="navbar__menu">
+                <li class="menu-item">
+                    <a href="index.html" class="menu-item-link">Trang chủ</a>
+                </li>
+                <li class="menu-item item-drop">
+                    <a href="#" class="menu-item-link">Sản phẩm</a>
+                    <ul class="menu-drop">
+                        <a href="thuoc.html" id="TRADITIONAL">Thuốc nội</a>
+                        <a href="thuoc.html" id="DESIGNED">Thuốc ngoại </a>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="lienhe.html" class="menu-item-link">Liên hệ</a>
+                </li>
+                <li class="menu-item">
+                    <a href="sitemap.html" class="menu-item-link">Sitemap</a>
+                </li>
+                <li class="menu-item">
+                    <a href="wish.html" class="menu-item-link">Sự kiện</a>
+                </li>
+                <li class="menu-item" id="btnProfile">
+                    <a href="#" class="menu-item-link">Giới thiệu</a>
+                </li>
+                <li class="menu-item" id="btnDangnhap">
+                    <a href="auth_form.html" class="menu-item-link">Đăng nhập</a>
+                </li>
+                <li class="menu-item" id="btnLogout" onclick="logout()" style="display: none;">
+                    <a href="index.html" class="menu-item-link">Đăng xuất</a>
+                </li>
+                <label for="menu-checkbox" class="hide-menu-btn">
+                    <i class="fas fa-times"></i>
+                </label>
+            </ul>
+        </nav>
+        <section class="cart-product">
+            <div class="row">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                    <div class="content-product">
+                        <!--Xuất dữ liệu vào trong đây-->
+                    </div>
+
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12" style="background-color: rgb(249, 239, 249);">
+                    <div class="row" style="margin-right: 55px; height: 30px;">
+                        <div class="col-xl-6 col-lg-6 col-md-6" style="padding-left: 15px;">
+                            Tạm tính
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6" class="totalprice" id="totalprice">0 đ</div>
+                    </div>
+                    <hr>
+                    <div class="row" style="margin-right: 55px;    height: 30px;">
+                        <div class="col-xl-6 col-lg-6 col-md-6" style="padding-left: 15px;">
+                            Thành tiền
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6" class="total" id="total">0 đ</div>
+                    </div>
+                    <button onclick="window.location.href='thanhtien.html'">Tiến hành thanh toán</button>
+                        
+
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="content-body">
+
+    </section>
+
+    <footer class="footer">
+        <section class="grid">
+            <section class="footer-wrap">
+                <p>Địa chỉ: 145/6 P5 Gò Vấp</p>
+                    <p>Điện thoại:0338248250</p>
+                    <p>Email: yennhi@gmail.com</p> 
+            </section>
+<style>
+    html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+.content {
+    flex: 1;  
+}
+button {
+    background-color: #8509749b;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    float: left  ;  
+}
+
+button:hover {
+    background-color: rgba(102, 11, 83, 0.929); 
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+</style>
+        </section>
+    </footer>
+    </section>
+    <script src="./asset/js/index_currentuser.js"></script>
+    <script src="./asset/js/index_control.js"></script>
+    <script src="./asset/js/index_loadcart.js"></script>
+</body>
+
+</html>
+
+<style>

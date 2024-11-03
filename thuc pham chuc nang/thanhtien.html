@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán</title>
+    <link rel="stylesheet" href="./asset/fonts/fontawesome-free-5.15.1-web/css/all.css">
+    <link rel="stylesheet" href="./asset/css/base.css">
+    <link rel="stylesheet" href="./asset/css/header-nav.css">
+    <link rel="stylesheet" href="./asset/css/index.css">
+    <link rel="stylesheet" href="./asset/css/auth_cart.css">
+</head>
+
+<body>
+    <section class="page">
+        <header class="header">
+            <section class="grid">
+                <section class="header-wrap">
+                    <!-- Logo -->
+                    <section class="header__logo">
+                        <a href="index.html" class="logo-link">YN PHAMARCITY</a>
+                    </section>
+                    <!-- Search bar -->
+                    <section class="header__search">
+                        <section class="search-wrap">
+                            <input type="text" class="search-input" id="searchProduct" placeholder="Tìm kiếm thuốc">
+                            <buthích class="search-btn" onclick="searchProduct()">
+                                <i class="search-btn-icon fas fa-search"></i>
+                        
+                        </section>
+                    </section>
+
+                    <!-- Cart -->
+                    <section class="header__cart">
+                        <section class="cart-wrap menu-item-active">
+                            <a href="auth_cart.html" class="cart-link">
+                                <i class="cart-icon fas fa-shopping-cart"></i>
+                                <small class="cart-notice">0</small>
+                            </a>
+                        </section>
+                    </section>
+                    <label for="menu-checkbox" class="show-menu-btn">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </label>
+                </section>
+            </section>
+        </header>
+
+        <nav class="navbar">
+            <input type="checkbox" name="" id="menu-checkbox">
+            <ul class="navbar__menu">
+                <li class="menu-item">
+                    <a href="index.html" class="menu-item-link">Trang chủ</a>
+                </li>
+                <li class="menu-item item-drop">
+                    <a href="#" class="menu-item-link">Sản phẩm</a>
+                    <ul class="menu-drop">
+                        <a href="thuoc.html" id="TRADITIONAL">Thuốc nội</a>
+                        <a href="thuoc.html" id="DESIGNED">Thuốc ngoại </a>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="lienhe.html" class="menu-item-link">Liên hệ</a>
+                </li>
+                <li class="menu-item">
+                    <a href="sitemap.html" class="menu-item-link">Sitemap</a>
+                </li>
+                <li class="menu-item">
+                    <a href="wish.html" class="menu-item-link">Sự kiện</a>
+                </li>
+                <li class="menu-item" id="btnProfile">
+                    <a href="#" class="menu-item-link">Giới thiệu</a>
+                </li>
+                <li class="menu-item" id="btnDangnhap">
+                    <a href="auth_form.html" class="menu-item-link">Đăng nhập</a>
+                </li>
+                <li class="menu-item" id="btnLogout" onclick="logout()" style="display: none;">
+                    <a href="index.html" class="menu-item-link">Đăng xuất</a>
+                </li>
+                <label for="menu-checkbox" class="hide-menu-btn">
+                    <i class="fas fa-times"></i>
+                </label>
+            </ul>
+        </nav>
+
+        <div class="content-body">
+            <h2>Thông tin thanh toán</h2>
+            <form id="payment-form" onsubmit="return handlePayment(event)">
+                <div class="form-group">
+                    <label for="fullname">Họ tên:</label>
+                    <input type="text" id="fullname" name="fullname" required placeholder="Nhập họ tên của bạn">
+                </div>
+                <div class="form-group">
+                    <label for="address">Địa chỉ giao hàng:</label>
+                    <input type="text" id="address" name="address" required placeholder="Nhập địa chỉ giao hàng">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Điện thoại:</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Nhập số điện thoại">
+                </div>
+                <button type="submit" class="submit-btn">Xác nhận thanh toán</button>
+            </form>
+        </div>
+        
+    </section>
+
+    <footer class="footer">
+        <section class="grid">
+            <section class="footer-wrap">
+                <p>Địa chỉ: 145/6 P5 Gò Vấp</p>
+                <p>Điện thoại:0338248250</p>
+                <p>Email: yennhi@gmail.com</p> 
+            </section>
+        </section>
+    </footer>
+    
+
+    <script src="./asset/js/index_currentuser.js"></script>
+    <script src="./asset/js/index_control.js"></script>
+    <script src="./asset/js/index_loadcart.js"></script>
+    <script>
+        // Hàm xử lý thanh toán
+        function handlePayment(event) {
+            event.preventDefault(); // Ngăn chặn hành động gửi form mặc định
+
+            const fullname = document.getElementById('fullname').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+
+            alert(`Thanh toán thành công!\nHọ tên: ${fullname}\nĐịa chỉ: ${address}\nĐiện thoại: ${phone}`);
+         }
+
+        // Gọi hàm để cập nhật giá trị tổng tiền
+        window.onload = function() {
+            const totalPrice = localStorage.getItem('totalPrice') || '0 đ'; // Lấy giá trị tổng từ localStorage
+            const total = localStorage.getItem('total') || '0 đ';
+            document.getElementById('totalprice').innerText = totalPrice;
+            document.getElementById('total').innerText = total;
+        };
+    </script>
+</body>
+
+</html>
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.page {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #8509749b;
+    color: white;
+    padding: 10px 0;
+}
+
+.header__logo .logo-link {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+.header__search {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+}
+
+.search-btn {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 4px;
+    color: #8509749b;
+}
+
+.navbar {
+    background-color: #333;
+}
+
+.navbar__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: inline-block;
+}
+
+.menu-item-link {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.menu-item-link:hover {
+    background-color: #8509749b;
+}
+
+.content-body {
+    margin-top: 20px;
+}
+
+.content-body h2 {
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    background-color:#8509749b;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #8509749b;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.footer-wrap p,
+.footer-wrap h3 {
+    margin: 5px 0;
+}
+    html, body {
+    height: 100%;
+    margin: 0;
+}
+.content-body {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc; /* Add a border around the form */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background for the form */
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 24px; /* Increased font size */
+    text-align: center; /* Center the title */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Spacing between fields */
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    display: block; /* Make label occupy the full width */
+}
+
+input[type="text"],
+input[type="tel"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%; /* Make inputs full width */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.submit-btn {
+    background-color: #ab1e989b;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Make button full width */
+}
+
+.submit-btn:hover {
+    background-color:rgba(168, 49, 142, 0.929);
+}
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+.content {
+    flex: 1;  
+}
+</style>
